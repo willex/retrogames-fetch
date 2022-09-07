@@ -14,7 +14,7 @@ download_options = [
     ['Sega Master System', 'https://archive.org/download/SegaMasterSystemCollectionByGhostware'],
     ['Sega Genesis', 'https://archive.org/download/SegaGenesisMegaDriveRomCollectionByGhostware'],
     ['Sega CD', 'https://archive.org/download/SegaCDCollection'],
-    ['Sega 32X', 'https://archive.org/download/Sega32X_201805'],
+    ['Sega 32X', 'https://archive.org/download/Sega-32x-Romset-us'],
     ['Sega Saturn', 'https://archive.org/download/redump.ss'], #'https://archive.org/download/SegaSaturnRomCollectionByGhostware'],
     ['Sega DreamCast', 'https://archive.org/download/DreamcastCollectionByGhostwareMulti-region'],
     ['TurboGrafx16', 'https://archive.org/download/NECPCEngineTurboGrafx16Complete'],
