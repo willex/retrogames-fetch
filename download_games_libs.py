@@ -57,7 +57,7 @@ download_options = [
     ['Translated Roms (Sony PlayStation 2)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%202%20%5BT-En%5D%20Collection/'],
     ['Translated Roms (Sony PlayStation 3)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%203%20%5BT-En%5D%20Collection/'],
     ['Translated Roms (Sony PlayStation Portable)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%20Portable%20%5BT-En%5D%20Collection/'],
-    ['Magazines: Nintendo Power Issues', 'https://archive.org/download/Nintendo_Power_Issue001-Issue127']
+    ['Magazines - Nintendo Power Issues', 'https://archive.org/download/Nintendo_Power_Issue001-Issue127']
 ]
 
 
@@ -73,7 +73,7 @@ def start_download(folder_name, url):
     for link in BeautifulSoup(response, parse_only=SoupStrainer('a'), features="html.parser"):
         if link.has_attr('href'):
             if not 'Contents' in str(link):
-                for file_format in ['.zip', '.7z', '.rar', '.j64', '.iso', '.pdf']:
+                for file_format in ['.zip', '.7z', '.rar', '.j64', '.iso', '.pdf', '.cbr']:
                     if file_format in str(link).lower():
                         file_name = '%s/%s' % (folder_name, link.text)
                         file_url = '%s/%s' % (url, link['href'])
