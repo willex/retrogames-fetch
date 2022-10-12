@@ -56,7 +56,8 @@ download_options = [
     ['Translated Roms (Sony PlayStation)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%20%5BT-En%5D%20Collection/'],
     ['Translated Roms (Sony PlayStation 2)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%202%20%5BT-En%5D%20Collection/'],
     ['Translated Roms (Sony PlayStation 3)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%203%20%5BT-En%5D%20Collection/'],
-    ['Translated Roms (Sony PlayStation Portable)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%20Portable%20%5BT-En%5D%20Collection/']
+    ['Translated Roms (Sony PlayStation Portable)', 'https://archive.org/download/En-ROMs/En-ROMs/Sony%20-%20PlayStation%20Portable%20%5BT-En%5D%20Collection/'],
+    ['Magazines: Nintendo Power Issues', 'https://archive.org/download/Nintendo_Power_Issue001-Issue127']
 ]
 
 
@@ -72,24 +73,25 @@ def start_download(folder_name, url):
     for link in BeautifulSoup(response, parse_only=SoupStrainer('a'), features="html.parser"):
         if link.has_attr('href'):
             if not 'Contents' in str(link):
-                if '.zip' in str(link).lower() or '.7z' in str(link).lower() or '.rar' in str(link).lower() or '.j64' in str(link).lower() or '.iso' in str(link).lower():
-                    file_name = '%s/%s' % (folder_name, link.text)
-                    file_url = '%s/%s' % (url, link['href'])
+                for file_format in ['.zip', '.7z', '.rar', '.j64', '.iso', '.pdf']:
+                    if file_format in str(link).lower():
+                        file_name = '%s/%s' % (folder_name, link.text)
+                        file_url = '%s/%s' % (url, link['href'])
 
-                    # check if file already exists
-                    if path.isfile(file_name):
-                        print('Download skipped. File already exists in target directory: %s' % file_name)
-                        continue
-                    else:
-                        # Start Download
-                        print('Downloading %s from: %s' % (file_name, file_url))
+                        # check if file already exists
+                        if path.isfile(file_name):
+                            print('Download skipped. File already exists in target directory: %s' % file_name)
+                            continue
+                        else:
+                            # Start Download
+                            print('Downloading %s from: %s' % (file_name, file_url))
 
-                        try:
-                            r = requests.get(file_url)
-                            with open(file_name, 'wb') as f:
-                                f.write(r.content)
-                        except:
-                            print('>>>> ERROR: Failed to download: %s' % file_url)
+                            try:
+                                r = requests.get(file_url)
+                                with open(file_name, 'wb') as f:
+                                    f.write(r.content)
+                            except:
+                                print('>>>> ERROR: Failed to download: %s' % file_url)
     else:
         exit()
 
