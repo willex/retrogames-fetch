@@ -11,6 +11,7 @@ download_options = [
     ['3DO', 'https://archive.org/download/Panasonic-3DO-Redump.org-2019-05-14'],
     ['Atari Jaguar', 'https://archive.org/download/AtariJaguarReuploadByGhostware'],
     ['Neo Geo (AES)', 'https://archive.org/download/NeoGeoRomCollectionByGhostware'],
+    ['Neo Geo (CD)', 'https://archive.org/download/redump.ngcd.revival'],
     ['Sega Master System', 'https://archive.org/download/SegaMasterSystemCollectionByGhostware'],
     ['Sega Genesis', 'https://archive.org/download/SegaGenesisMegaDriveRomCollectionByGhostware'],
     ['Sega CD', 'https://archive.org/download/SegaCDCollection'],
